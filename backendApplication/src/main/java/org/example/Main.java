@@ -8,39 +8,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Usuario usuario = new Usuario();
-        System.out.println("""
-                BEM-VINDOS AO SOFTWARE DE MONITORAMENTO SISGUARD
-                
-                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⠀⠀⠀⢀⣠⣤⣤⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀ ⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⢠⣿⣿⣿⡿⠛⠉⠙⠻⣿⣿⣿⣧⠀⠀⠀⣿⣿⣿⣿⠉⠉⠉⠛⢿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⣿⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣼⣿⣿⣿⠃⠀⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⣾⣿⡿⠿⠿⠿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠛⠛⠛⠛⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢸⣿⣿⡇⢠⡄⢀⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣿⡟⣿⣿⣿⠃⣸⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⣿⣿⣿⣿⣤⣤⣤⣤⣾⣿⣿⣿⡏⠀⠀⠀⠀⠀⢸⣿⠁⣸⣿⡟⠀⣿⣿⡌⢿⣧⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⣾⡇⠀⣿⣿⣃⣸⣿⣿⣿⠈⠻⣷⣄⡀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⣿⣿⣿⣿⠛⠛⢻⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⢠⡟⠀⢠⣿⣿⣿⣿⣿⣿⣿⣧⠀⠈⢿⡦⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⣿⣿⣿⣿⠀⠀⠈⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⠛⠛⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀
-                ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⢠⣤⣤⣤⡄⠀ ⠀⣿⣿⣿⣿⠀⠀⠀⠸⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⢸⣿⡿⠋⠁⠀⠀⠀⠈⠻⣿⣿⡄⠀⠀⠀⠀⠀
-                ⠀⠀⢹⣿⣿⣿⣇⠀⠀⠀⢀⣿⣿⣿⣿⠀ ⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⢻⣿⣿⣿⡆⠀⠀⠀⠀⠀⣰⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣧⠀⠀⠀⠀⠀
-                ⠀⠀⠀⢻⣿⣿⣿⣷⣶⣶⣿⣿⣿⣿⠃⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠘⣿⣿⣿⣿⡀⠀⠀⠀⣼⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣧⠀⠀⠀⠀
-                ⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⠿⠛⠁⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⠀⠀⠀⢹⣿⣿⣿⣧⠀⠀⣸⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣇⠀⠀⠀
-                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                """);
+
+     /* SwingUtilities.invokeLater(() -> {
+          Tela telaLogin = new Tela();
+          telaLogin.setVisible(true);
+           });
+      */
+
         Scanner perguntaUser = new Scanner(System.in);
-        System.out.println("Insira o e-mail?");
+        System.out.println("Qual seria o e-mail?");
         String email = perguntaUser.nextLine();
-        System.out.println("");
-        System.out.println("Insira a senha?");
+        System.out.println("Qual seria a senha?");
         String senha = perguntaUser.nextLine();
-        System.out.println("");
 
         String respostaBanco = usuario.validarUser(email, senha);
 
         System.out.println(respostaBanco);
-
-        
 
     }
 }
